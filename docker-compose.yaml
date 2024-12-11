@@ -1,0 +1,42 @@
+services:
+    camelot:
+        build: ../pdf-table-extractor
+        ports:
+            - 5000:5000
+        env_file:
+            - .env
+        networks:
+            - windai-network
+    n8n-custom-nodes:
+        build: 
+            args:
+                N8N_VERSION: 1.42.0
+            context: ../n8n-custom-nodes
+        ports:
+            - 5678:5678
+        networks:
+            - windai-network
+        volumes:
+            - n8n_data:/home/node/.n8n
+    lowcoder:
+        image: lowcoderorg/lowcoder-ce
+        ports:
+            - 27017:27017
+            - 3001:3000
+        networks:
+            - windai-network
+        volumes:
+            - ./lowcoder-stacks:/lowcoder-stacks
+    nextjs:
+        build: ./
+        ports:
+            - 3000:3000
+        networks:
+            - windai-network
+            
+volumes:
+    n8n_data:
+  
+networks:
+    windai-network:
+        driver: bridge
