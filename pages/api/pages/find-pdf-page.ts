@@ -19,7 +19,7 @@ export const config = {
       sizeLimit: "100mb",
     },
   },
-  maxDuration: 60,
+  maxDuration: 120,
 };
 export const runtime = "nodejs";
 
