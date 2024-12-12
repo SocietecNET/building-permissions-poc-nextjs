@@ -103,7 +103,7 @@ export function euclideanDistance(vector1: number[], vector2: number[]) {
   return Math.sqrt(sum);
 }
 
-// second table from the page 18 of test00-30p.pdf
+// the table from page 25 in the DTAC_Roata_ARH.pdf file
 export const referenceTableIndex = [
   -0.02492356114089489,
   0.03395908325910568,
